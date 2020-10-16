@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Agenda de contatos</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div>        
+            <div class="navbar">
+                <div>
+                    <h1>Agenda de contatos</h1>
+                </div>
+                <div>
+                    <button class="btn btn--outlined" onclick="abrirPainel(true)">
+                    Novo contato
+                    </button>
+                </div>
+            </div>
+            <div class="agenda-de-contatos--container">
+                <div class="agenda-de-contatos">
+                    <div class="agenda-de-contatos--header">
+                        <div class="agenda-de-contatos--header__item-row">
+                            <div class="agenda-de-contatos--header__column">
+                                <h5>Nome</h5>
+                            </div>
+                            <div class="agenda-de-contatos--header__column">
+                                <h5>Telefone</h5>
+                            </div>
+                            <div class="agenda-de-contatos--header__column">
+                                <h5>E-mail</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="agenda-de-contatos--body">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="painel-dados-contato--container">
+                <div class="painel-dados-contato" id="painel-de-dados">
+                    <div class="painel-dados-contato--header">
+                        <div class="btn-fechar--container">
+                            <button class="btn--icon" onclick="abrirPainel(false)">X</button>
+                        </div>
+                        <div class="titulo-formulario--container">
+                            <h4>Cadastrar novo número</h4>
+                        </div>
+                    </div>
+                    <div class="formulario">
+                        <div class="formulario--item">
+                            <h4>Nome</h4>
+                            <div>
+                                <input id="formulario-input--nome" type="text" placeholder="add nome">
+                            </div>
+                        </div>
+                        <div class="formulario--item">
+                            <h4>Telefone</h4>
+                            <div>
+                                <input id="formulario-input--telefone" type="text" placeholder="(xx)xxxxx-xxxx">
+                            </div>
+                        </div>
+                        <div class="formulario--item">
+                            <h4>E-mail</h4>
+                            <div>
+                                <input id="formulario-input--email" type="text" placeholder="add e-mail">
+                            </div>
+                        </div>
+                        <div class="btn--container">
+                            <button class="btn btn--secondary">Cancelar</button>
+                            <div class="btn-salvar--container">
+                                <button class="btn btn--primary" onclick="criarContato()">Salvar</button>
+                            </div>  
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <div id="overlay" onclick="abrirPainel(false)"></div>
+        </div>
+    </body>
+</html>
