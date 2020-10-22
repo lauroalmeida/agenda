@@ -209,3 +209,12 @@ max-width: 20em;
     width: 100%;
     max-width: 20em;
     }
+
+
+.btn-delete {
+    margin-left: 20px;
+}
+
+.agenda-de-contatos--body__column--flex {
+    display: flex;
+}

@@ -1,9 +1,14 @@
+let id = 1
+let contatos = []
+
 class Contato{
     constructor({
+        id,
         nome,
         telefone,
         email
     }) {
+        this.id = id,
         this.nome = nome,
         this.telefone = telefone,
         this.email = email
@@ -49,17 +54,21 @@ const criarContato = () => {
 
     const elementoEmail = document.getElementById("formulario-input--email")
     const email = elementoEmail.value
+
  
     const novoContato = new Contato({
+        id,
         nome,
         telefone,
         email
     })
 
+    contatos.push(novoContato)
+
     const formularioBodyElemento = document.querySelector(".agenda-de-contatos--body")
 
     const rowTemplate = `
-        <div class="agenda-de-contatos--body__item-row">
+        <div id=${`contato-${novoContato.id}`} class="agenda-de-contatos--body__item-row">
             <div class="agenda-de-contatos--body__column">
                 <label>${novoContato.nome}</label>
             </div>
@@ -69,8 +78,25 @@ const criarContato = () => {
             <div class="agenda-de-contatos--body__column">
                 <label>${novoContato.email}</label>
             </div>
+            <div class="agenda-de-contatos--body__column agenda-de-contatos--body__column--flex">
+                <div>
+                    <button class="btn btn--outlined">Editar</button>
+                </div>
+                <div class="btn-delete">
+                    <button class="btn btn--outlined" onclick='deletarContato(${novoContato.id})'>Deletar</button>
+                </div>
+            </div>          
         </div>
     `
     formularioBodyElemento.insertAdjacentHTML("afterbegin", rowTemplate)
     abrirPainel(false)
+
+    id += 1
 } 
+
+const deletarContato = (contatoID) => {
+    contatos = contatos.filter((c, index) => c.id !== contatoID)
+
+    const contatoElemento = document.getElementById(`${`contato-${contatoID}`}`)
+    contatoElemento.parentNode.removeChild(contatoElemento)
+}
